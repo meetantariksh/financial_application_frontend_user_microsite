@@ -1,5 +1,7 @@
 import { injectGlobal } from 'styled-components';
 
+import bgBoxedImage from '../app/images/globalImage/boxed-bg.jpg';
+
 /* eslint no-unused-expressions: 0 */
 injectGlobal`
   html,
@@ -39,7 +41,7 @@ body {
   position: relative;
 }
 .layout-boxed {
-  background: url('../img/boxed-bg.jpg') repeat fixed;
+  background: url(${bgBoxedImage}) repeat fixed;
 }
 /*
  * Content Wrapper - contains the main content

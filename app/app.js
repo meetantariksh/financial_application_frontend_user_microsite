@@ -29,11 +29,39 @@ import '!file-loader?name=[name].[ext]!./images/favicon.ico';
 import '!file-loader?name=[name].[ext]!./manifest.json';
 import 'file-loader?name=[name].[ext]!./.htaccess';
 
-import 'file-loader?name=[name].[ext]!./externals/styles/bootstrap/dist/css/bootstrap.min.css';
-import 'file-loader?name=[name].[ext]!./externals/styles/font-awesome/css/font-awesome.min.css';
-import 'file-loader?name=[name].[ext]!./externals/styles/Ionicons/css/ionicons.min.css';
-import 'file-loader?name=[name].[ext]!./externals/styles/AdminLTE.css';
-import 'file-loader?name=[name].[ext]!./externals/styles/_all-skins.css';
+import '!file-loader?name=[name].[ext]!./externals/styles/bootstrap/dist/css/bootstrap.min.css';
+import '!file-loader?name=[name].[ext]!./externals/styles/bootstrap/dist/css/bootstrap.min.css.map';
+import '!file-loader?name=[name].[ext]!./externals/styles/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css';
+import '!file-loader?name=[name].[ext]!./externals/styles/font-awesome/css/font-awesome.min.css';
+import '!file-loader?name=[name].[ext]!./externals/styles/Ionicons/css/ionicons.min.css';
+import '!file-loader?name=[name].[ext]!./externals/styles/AdminLTE.css';
+import '!file-loader?name=[name].[ext]!./externals/styles/_all-skins.css';
+
+import '!file-loader?name=[name].[ext]!./externals/styles/bootstrap/dist/fonts/glyphicons-halflings-regular.eot';
+import '!file-loader?name=[name].[ext]!./externals/styles/bootstrap/dist/fonts/glyphicons-halflings-regular.svg';
+import '!file-loader?name=[name].[ext]!./externals/styles/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf';
+import '!file-loader?name=[name].[ext]!./externals/styles/bootstrap/dist/fonts/glyphicons-halflings-regular.woff';
+import '!file-loader?name=[name].[ext]!./externals/styles/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2';
+
+import '!file-loader?name=[name].[ext]!./externals/styles/font-awesome/fonts/fontawesome-webfont.eot';
+import '!file-loader?name=[name].[ext]!./externals/styles/font-awesome/fonts/fontawesome-webfont.svg';
+import '!file-loader?name=[name].[ext]!./externals/styles/font-awesome/fonts/fontawesome-webfont.ttf';
+import '!file-loader?name=[name].[ext]!./externals/styles/font-awesome/fonts/fontawesome-webfont.woff';
+import '!file-loader?name=[name].[ext]!./externals/styles/font-awesome/fonts/fontawesome-webfont.woff2';
+
+import '!file-loader?name=[name].[ext]!./externals/styles/Ionicons/fonts/ionicons.eot';
+import '!file-loader?name=[name].[ext]!./externals/styles/Ionicons/fonts/ionicons.svg';
+import '!file-loader?name=[name].[ext]!./externals/styles/Ionicons/fonts/ionicons.ttf';
+import '!file-loader?name=[name].[ext]!./externals/styles/Ionicons/fonts/ionicons.woff';
+
+import '!file-loader?name=[name].[ext]!./externals/styles/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js';
+import '!file-loader?name=[name].[ext]!./externals/styles/bootstrap/dist/js/bootstrap.min.js';
+
+import '!file-loader?name=[name].[ext]!./externals/styles/jquery/dist/jquery.min.js';
+import '!file-loader?name=[name].[ext]!./externals/styles/jquery-ui/jquery-ui.min.js';
+import '!file-loader?name=[name].[ext]!./externals/styles/adminlte.js';
+
+
 /* eslint-enable import/no-unresolved, import/extensions */
 
 import configureStore from './configureStore';
@@ -41,12 +69,9 @@ import configureStore from './configureStore';
 // Import i18n messages
 import { translationMessages } from './i18n';
 
-// Import CSS reset and Global Styles
-import './global-styles';
-
 // Create redux store with history
 const initialState = {};
-const history = createHistory();
+const history = createHistory({ basename: '/user' });
 const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app');
 

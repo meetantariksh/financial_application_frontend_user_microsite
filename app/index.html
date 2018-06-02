@@ -8,6 +8,19 @@
     <!-- Allow installing the app to the homescreen -->
     <link rel="manifest" href="manifest.json">
     <meta name="mobile-web-app-capable" content="yes">
+
+    <link rel="stylesheet" href="/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/AdminLTE.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="/_all-skins.css">
+  <link rel="stylesheet" href="/bootstrap3-wysihtml5.min.css">
+
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <title>Periscope Capitals</title>
@@ -19,5 +32,17 @@
     <!-- The app hooks into this div -->
     <div id="app"></div>
     <!-- A lot of magic happens in this file. HtmlWebpackPlugin automatically includes all assets (e.g. bundle.js, main.css) with the correct HTML tags, which is why they are missing in this HTML file. Don't add any assets here! (Check out webpackconfig.js if you want to know more) -->
+
+    <script src="/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+      $.widget.bridge('uibutton', $.ui.button);
+    </script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="/bootstrap.min.js"></script>
+    <script src="/bootstrap3-wysihtml5.all.min.js"></script>
+    <script src="/adminlte.js"></script>
   </body>
 </html>
