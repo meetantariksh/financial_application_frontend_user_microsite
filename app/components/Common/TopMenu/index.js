@@ -9,6 +9,16 @@ import React from 'react';
 
 
 class TopMenu extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  constructor(props) {
+    super(props);
+
+    this.toggleSideMenuBar = this.toggleSideMenuBar.bind(this);
+  }
+
+  toggleSideMenuBar() {
+
+  }
+
   render() {
     return (
       <div>
