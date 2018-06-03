@@ -9,7 +9,9 @@ import {
   DEFAULT_ACTION,
 } from './constants';
 
-const initialState = fromJS({});
+const initialState = fromJS({
+  parentClassName: 'hold-transition skin-blue sidebar-mini',
+});
 
 function userLandingPageReducer(state = initialState, action) {
   switch (action.type) {

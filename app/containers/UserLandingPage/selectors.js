@@ -19,7 +19,13 @@ const makeSelectUserLandingPage = () => createSelector(
   (substate) => substate.toJS()
 );
 
+const makeSelectParentClassName = () => createSelector(
+  selectUserLandingPageDomain,
+  (substate) => substate.get('parentClassName')
+);
+
 export default makeSelectUserLandingPage;
 export {
   selectUserLandingPageDomain,
+  makeSelectParentClassName,
 };

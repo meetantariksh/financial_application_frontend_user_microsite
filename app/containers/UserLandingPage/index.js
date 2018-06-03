@@ -13,14 +13,16 @@ import { compose } from 'redux';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import makeSelectUserLandingPage from './selectors';
+import makeSelectUserLandingPage, {
+  makeSelectParentClassName,
+} from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
 export class UserLandingPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div className="hold-transition skin-blue sidebar-mini">
+      <div className={this.props.parentClassName}>
         <Helmet>
           <title>Periscope Capitals - Home</title>
           <meta name="description" content="This is the Langing page for the User after login." />
@@ -31,11 +33,12 @@ export class UserLandingPage extends React.Component { // eslint-disable-line re
 }
 
 UserLandingPage.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  parentClassName: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
   userlandingpage: makeSelectUserLandingPage(),
+  parentClassName: makeSelectParentClassName(),
 });
 
 function mapDispatchToProps(dispatch) {

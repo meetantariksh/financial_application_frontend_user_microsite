@@ -21,7 +21,7 @@ export default function App() {
   return (
     <div>
       <Switch>
-        <Route exact path="/" component={UserLandingPage} />
+        <Route path="/" component={UserLandingPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
