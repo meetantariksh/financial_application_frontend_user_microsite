@@ -7,6 +7,7 @@
 import React from 'react';
 // import styled from 'styled-components';
 
+import MaleAvatar from '../../../images/globalImage/male_avatar.png';
 
 class TopMenu extends React.Component { // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
@@ -28,7 +29,7 @@ class TopMenu extends React.Component { // eslint-disable-line react/prefer-stat
             <span className="logo-lg"><b>Periscope</b> Capitals</span>
           </a>
           <nav className="navbar navbar-static-top">
-            <a href="#" className="sidebar-toggle" data-toggle="push-menu" role="button">
+            <a className="sidebar-toggle" data-toggle="push-menu" role="button">
               <span className="sr-only">Toggle navigation</span>
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
@@ -38,7 +39,7 @@ class TopMenu extends React.Component { // eslint-disable-line react/prefer-stat
             <div className="navbar-custom-menu">
               <ul className="nav navbar-nav">
                 <li className="dropdown messages-menu">
-                  <a href="#" className="dropdown-toggle" data-toggle="dropdown">
+                  <a className="dropdown-toggle" data-toggle="dropdown">
                     <i className="fa fa-envelope-o"></i>
                     <span className="label label-success">4</span>
                   </a>
@@ -47,9 +48,9 @@ class TopMenu extends React.Component { // eslint-disable-line react/prefer-stat
                     <li>
                       <ul className="menu">
                         <li>
-                          <a href="#">
+                          <a>
                             <div className="pull-left">
-                              <img src="../../dist/img/user2-160x160.jpg" className="img-circle" alt="User Image" />
+                              <img src={MaleAvatar} className="img-circle" alt="User" />
                             </div>
                             <h4>
                               Support Team
