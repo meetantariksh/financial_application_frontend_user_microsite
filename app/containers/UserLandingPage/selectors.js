@@ -24,8 +24,14 @@ const makeSelectParentClassName = () => createSelector(
   (substate) => substate.get('parentClassName')
 );
 
+const makeSelectIsSideBarOpen = () => createSelector(
+  selectUserLandingPageDomain,
+  (substate) => substate.get('isSideBarOpen')
+);
+
 export default makeSelectUserLandingPage;
 export {
   selectUserLandingPageDomain,
   makeSelectParentClassName,
+  makeSelectIsSideBarOpen,
 };

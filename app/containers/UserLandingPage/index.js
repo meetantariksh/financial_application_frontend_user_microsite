@@ -15,11 +15,16 @@ import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 import makeSelectUserLandingPage, {
   makeSelectParentClassName,
+  makeSelectIsSideBarOpen,
 } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
+import {
+  toggleSidebar,
+} from './actions';
 
 import TopMenu from '../../components/Common/TopMenu/Loadable';
+import SideMenu from '../../components/Common/SideMenu/Loadable';
 
 // Dummy Data - These Data should be fetched from back end.....
 const messagesData = {
@@ -69,9 +74,19 @@ const profileData = {
 // Dummy Data - These Data should be fetched from back end.....
 
 export class UserLandingPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  constructor(props) {
+    super(props);
+
+    this.toggleSideMenu = this.toggleSideMenu.bind(this);
+  }
+
+  toggleSideMenu(openSideBar) {
+    this.props.dispatch(toggleSidebar(openSideBar));
+  }
+
   render() {
     return (
-      <div className={this.props.parentClassName}>
+      <div className={`${this.props.parentClassName} ${this.props.isSideBarOpen ? '' : 'sidebar-collapse'}`}>
         <Helmet>
           <title>Periscope Capitals - Home</title>
           <meta name="description" content="This is the Langing page for the User after login." />
@@ -81,6 +96,12 @@ export class UserLandingPage extends React.Component { // eslint-disable-line re
           messageData={messagesData}
           notificationData={notificationData}
           profileData={profileData}
+          toggleSidebar={this.toggleSideMenu}
+          isSideBarOpen={this.props.isSideBarOpen}
+        />
+
+        <SideMenu
+          profileData={profileData}
         />
       </div>
     );
@@ -88,12 +109,15 @@ export class UserLandingPage extends React.Component { // eslint-disable-line re
 }
 
 UserLandingPage.propTypes = {
+  dispatch: PropTypes.func.isRequired,
   parentClassName: PropTypes.string.isRequired,
+  isSideBarOpen: PropTypes.bool,
 };
 
 const mapStateToProps = createStructuredSelector({
   userlandingpage: makeSelectUserLandingPage(),
   parentClassName: makeSelectParentClassName(),
+  isSideBarOpen: makeSelectIsSideBarOpen(),
 });
 
 function mapDispatchToProps(dispatch) {

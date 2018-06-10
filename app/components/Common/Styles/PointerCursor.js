@@ -31,7 +31,7 @@ const StyledLinkCursor = styled(Link)`
 
 Link.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.object,
+  children: PropTypes.any,
   onLinkClick: PropTypes.func,
 };
 

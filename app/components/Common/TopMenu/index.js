@@ -42,7 +42,7 @@ class TopMenu extends React.Component { // eslint-disable-line react/prefer-stat
   }
 
   toggleSideMenuBar() {
-
+    this.props.toggleSidebar(!this.props.isSideBarOpen);
   }
 
   toggleMailDropDown() {
@@ -82,12 +82,12 @@ class TopMenu extends React.Component { // eslint-disable-line react/prefer-stat
             <span className="logo-lg"><b>Periscope</b> Capitals</span>
           </Link>
           <nav className="navbar navbar-static-top">
-            <a className="sidebar-toggle" data-toggle="push-menu" role="button">
+            <PointerStyledCursor onLinkClick={this.toggleSideMenuBar} className="sidebar-toggle" role="button">
               <span className="sr-only">Toggle navigation</span>
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
-            </a>
+            </PointerStyledCursor>
 
             <div className="navbar-custom-menu">
               <ul className="nav navbar-nav">
@@ -179,6 +179,8 @@ TopMenu.propTypes = {
   messageData: PropTypes.object.isRequired,
   notificationData: PropTypes.object.isRequired,
   profileData: PropTypes.object.isRequired,
+  toggleSidebar: PropTypes.func.isRequired,
+  isSideBarOpen: PropTypes.bool.isRequired,
 };
 
 export default TopMenu;
