@@ -1,0 +1,5 @@
+{
+    "home_page_redirection": "http://localhost:3000/",
+    "sustain_login_cookie_name": "periscope__swaant_ghoroy_logn_switch_cookie",
+    "login_session_storage_name": "non_db_authentication_token"
+}

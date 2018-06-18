@@ -12,7 +12,9 @@
  */
 
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
+
+import { ProtectedRoute } from '../../components/Common/AuthenticationGuard';
 
 import UserLandingPage from '../UserLandingPage/Loadable';
 import NotFoundPage from '../NotFoundPage/Loadable';
@@ -21,8 +23,8 @@ export default function App() {
   return (
     <div>
       <Switch>
-        <Route path="/" component={UserLandingPage} />
-        <Route component={NotFoundPage} />
+        <ProtectedRoute path="/" component={UserLandingPage} />
+        <ProtectedRoute component={NotFoundPage} />
       </Switch>
     </div>
   );

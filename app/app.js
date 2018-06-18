@@ -76,6 +76,18 @@ const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app');
 
 const render = (messages) => {
+  const cookieVal = getCookie(_globals.config.sustain_login_cookie_name);
+  if (cookieVal && cookieVal !== '') {
+    eraseCookie(_globals.config.sustain_login_cookie_name);
+    window.sessionStorage.setItem(_globals.config.login_session_storage_name, cookieVal);
+  } else {
+    const authToken = window.sessionStorage.getItem(_globals.config.login_session_storage_name);
+    if (authToken && authToken !== '') {
+      console.log('The page was refreshed...');
+    } else {
+      window.location = _globals.config.home_page_redirection;
+    }
+  }
   ReactDOM.render(
     <Provider store={store}>
       <LanguageProvider messages={messages}>
@@ -119,4 +131,19 @@ if (!window.Intl) {
 // we do not want it installed
 if (process.env.NODE_ENV === 'production') {
   require('offline-plugin/runtime').install(); // eslint-disable-line global-require
+}
+
+function getCookie(name) {
+  let nameEQ = `${name  }=`;
+  let ca = document.cookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+  }
+  return null;
+}
+
+function eraseCookie(name) {
+  document.cookie = `${name}=; Max-Age=-99999999;`;
 }
