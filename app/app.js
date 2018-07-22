@@ -77,6 +77,7 @@ const MOUNT_NODE = document.getElementById('app');
 
 const render = (messages) => {
   const cookieVal = getCookie(_globals.config.sustain_login_cookie_name);
+  console.log(cookieVal);
   if (cookieVal && cookieVal !== '') {
     eraseCookie(_globals.config.sustain_login_cookie_name);
     window.sessionStorage.setItem(_globals.config.login_session_storage_name, cookieVal);
