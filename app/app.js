@@ -77,14 +77,13 @@ const MOUNT_NODE = document.getElementById('app');
 
 const render = (messages) => {
   const cookieVal = getCookie(_globals.config.sustain_login_cookie_name);
-  console.log(cookieVal);
   if (cookieVal && cookieVal !== '') {
     eraseCookie(_globals.config.sustain_login_cookie_name);
     window.sessionStorage.setItem(_globals.config.login_session_storage_name, cookieVal);
   } else {
     const authToken = window.sessionStorage.getItem(_globals.config.login_session_storage_name);
     if (authToken && authToken !== '') {
-      console.log('The page was refreshed...');
+      
     } else {
       window.location = _globals.config.home_page_redirection;
     }
